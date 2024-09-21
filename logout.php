@@ -1,0 +1,22 @@
+<?php
+ini_set('display_errors', 0);
+ini_set('max_execution_time', 0);
+date_default_timezone_set("Asia/Jakarta");
+session_start();
+session_destroy();
+include "config/conf.php";
+unset($_SESSION['account_id']);
+unset($_SESSION['email']);
+unset($_SESSION['password']);
+unset($_SESSION['name']);
+unset($_SESSION['gender']);
+unset($_SESSION['age']);
+unset($_SESSION['blood']);
+unset($_SESSION['birth']);
+unset($_SESSION['religion']);
+unset($_SESSION['is_deleted']);
+unset($_SESSION['deleted_at']);
+unset($_SESSION['created_at']);
+unset($_SESSION['updated_at']);
+unset($_SESSION['role']);
+header("Location: ./index.php?OutAccess=true");
