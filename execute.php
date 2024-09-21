@@ -9,6 +9,7 @@ function login($data)
         $_SESSION['account_id'] = $data['account_id'];
         $_SESSION['role_id'] = $data['role_id'];
         $_SESSION['role_code'] = $data['role_code'];
+        $_SESSION['role_name'] = $data['role_name'];
         $_SESSION['photo'] = $data['photo'];
         $_SESSION['username'] = $data['username'];
         $_SESSION['password'] = $data['password'];
@@ -49,6 +50,7 @@ $result = $user->fetch_assoc();
 $account_id = $result['account_id'];
 $role_id = $result['role_id'];
 $role_code = $result['role_code'];
+$role_name = $result['role_name'];
 $photo = $result['photo'];
 $username = $result['username'];
 $password = $result['password'];
@@ -68,10 +70,12 @@ $updated_at = $result['updated_at'];
 $status = $result['status'];
 
 if ($result != NULL) {
+    // if ($role_name == 'Superadmin' || $role_name == 'User') {
     $data = [
         'account_id' => $account_id,
         'role_id' => $role_id,
         'role_code' => $role_code,
+        'role_name' => $role_name,
         'photo' => $photo,
         'username' => $username,
         'password' => $password,

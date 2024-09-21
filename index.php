@@ -3,27 +3,27 @@ session_start();
 include "config/conf.php";
 ?>
 <style>
-    .main-bg {
-        background-color: <?= $main_color ?> !important;
-    }
+.main-bg {
+    background-color: <?=$main_color ?> !important;
+}
 
 
-    .main-bg:hover {
-        background-color: <?= $hover_color ?> !important;
-    }
+.main-bg:hover {
+    background-color: <?=$hover_color ?> !important;
+}
 
-    .hover-bg {
-        background: linear-gradient(45deg, #000000, #607D8B);
-    }
+.hover-bg {
+    background: linear-gradient(45deg, #000000, #607D8B);
+}
 
-    #bg-login {
-        background-image: url('assets/my-content/background/<?= $background_img; ?>');
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        opacity: 55%;
-    }
+#bg-login {
+    background-image: url('assets/my-content/background/<?= $background_img; ?>');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 55%;
+}
 </style>
 <?php
 
@@ -33,7 +33,7 @@ $get_api = explode('/', $url);
 if ($get_api[1] == 'api') {
     include $get_api[1] . '/' . $get_api[2] . '.php';
 } else {
-    if (!empty($_SESSION['role'])) {
+    if (!empty($_SESSION['role_name'])) {
         include "include/head.php";
         include "include/cssDatatables.php";
 
