@@ -9,7 +9,7 @@ $qconfigsetting = $db->query("SELECT * FROM apps ORDER BY app_id ASC LIMIT 1");
 $rconfigsetting = mysqli_fetch_array($qconfigsetting);
 
 $app_id = $rconfigsetting['app_id'] == NULL ? NULL : '' . $rconfigsetting['app_id'] . '';
-$icon_img = $rconfigsetting['icon_img'] == NULL ? NULL : '' . $rconfigsetting['icon_img'] . '';
+$icon_img = $rconfigsetting['icon_img'] == NULL ? 'icon4.svg' : '' . $rconfigsetting['icon_img'] . '';
 $logo_img = $rconfigsetting['logo_img'] == NULL ? NULL : '' . $rconfigsetting['logo_img'] . '';
 $loader_img = $rconfigsetting['loader_img'] == NULL ? NULL : '' . $rconfigsetting['loader_img'] . '';
 $type_background = $rconfigsetting['type_background'] == NULL ? NULL : '' . $rconfigsetting['type_background'] . '';
