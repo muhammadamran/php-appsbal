@@ -2,7 +2,7 @@
 $dbhost = 'localhost';
 $dbuser = 'root';
 $dbpass = '';
-$dbmame = 'dacom_schema';
+$dbmame = 'db_erp';
 $db = new mysqli($dbhost, $dbuser, $dbpass, $dbmame) or die(mysqli_connect_errno());
 
 $qconfigsetting = $db->query("SELECT * FROM apps ORDER BY app_id ASC LIMIT 1");

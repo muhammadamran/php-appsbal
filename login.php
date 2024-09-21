@@ -31,25 +31,27 @@
                         </div>
                         <!--begin::Alert-->
                         <?php if (isset($_GET['OutAccess'])) { ?>
-                            <div class="alert alert-info alert-dismissible">
-                                <strong>Log Out!</strong> Successfully log out, your session has been ended.
-                            </div>
+                        <div class="alert alert-info alert-dismissible">
+                            <strong>Log Out!</strong> Successfully log out, your session has been ended.
+                        </div>
                         <?php } ?>
                         <?php if (isset($_GET['error'])) { ?>
-                            <div class="alert alert-danger alert-dismissible">
-                                <strong>Failed Log In!</strong> Incorrect email or password.
-                            </div>
+                        <div class="alert alert-danger alert-dismissible">
+                            <strong>Failed Log In!</strong> Incorrect email or password.
+                        </div>
                         <?php } ?>
                         <!--end::Alert-->
                         <div class="fv-row mb-10" style="margin-bottom: 10px !important;">
                             <label class="form-label fs-6 fw-bold text-dark">Email</label>
-                            <input class="form-control form-control-lg form-control-solid" type="text" name="email" id="Email" autocomplete="off" placeholder="Email..." required />
+                            <input class="form-control form-control-lg form-control-solid" type="text" name="username"
+                                id="Username" autocomplete="off" placeholder="Email..." required />
                         </div>
                         <div class="fv-row mb-10">
                             <div class="d-flex flex-stack mb-2">
                                 <label class="form-label fw-bold text-dark fs-6 mb-0">Password</label>
                             </div>
-                            <input class="form-control form-control-lg form-control-solid" type="password" name="password" id="Password" autocomplete="off" placeholder="Password..." required />
+                            <input class="form-control form-control-lg form-control-solid" type="password"
+                                name="password" id="Password" autocomplete="off" placeholder="Password..." required />
                         </div>
                         <div style="margin-top: -20px;margin-bottom: 15px;">
                             <label class="form-check form-check-custom form-check-solid align-items-start">
@@ -61,7 +63,8 @@
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" id="kt_sign_in_submit" class="btn btn-lg main-bg btn-success w-100 mb-5">
+                            <button type="submit" id="kt_sign_in_submit"
+                                class="btn btn-lg main-bg btn-success w-100 mb-5">
                                 <span class="indicator-label">
                                     <i class="fas fa-sign-in-alt"></i>
                                     Log In
@@ -90,24 +93,24 @@
 </div>
 <!-- Show Password -->
 <script type="text/javascript">
-    function myFunction() {
-        var x = document.getElementById("Password");
-        if (x.type === "password") {
-            x.type = "text";
-        } else {
-            x.type = "password";
-        }
+function myFunction() {
+    var x = document.getElementById("Password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
     }
+}
 </script>
 <!-- End Show Password -->
 <script type="text/javascript">
-    // if (window?.location?.href?.indexOf('OutAccess') > -1) {
-    //     Swal.fire({
-    //         title: 'Berhasil Sign Out!',
-    //         icon: 'success',
-    //         html: '<font style="font-weight: 500;">Anda berhasil keluar dan <b><i>session</i></b> anda telah berakhir!</font>',
-    //     })
-    //     history.replaceState({}, '', './index.php');
-    // }
+// if (window?.location?.href?.indexOf('OutAccess') > -1) {
+//     Swal.fire({
+//         title: 'Berhasil Sign Out!',
+//         icon: 'success',
+//         html: '<font style="font-weight: 500;">Anda berhasil keluar dan <b><i>session</i></b> anda telah berakhir!</font>',
+//     })
+//     history.replaceState({}, '', './index.php');
+// }
 </script>
 <?php include "include/login/footer.php"; ?>
