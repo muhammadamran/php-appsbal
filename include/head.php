@@ -28,8 +28,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <!-- End Font -->
     <!-- Begin FONTAWESON 5 -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/solid.css" integrity="sha384-DhmF1FmzR9+RBLmbsAts3Sp+i6cZMWQwNTRsew7pO/e4gvzqmzcpAzhDIwllPonQ" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/fontawesome.css" integrity="sha384-zIaWifL2YFF1qaDiAo0JFgsmasocJ/rqu7LKYH8CoBEXqGbb9eO+Xi3s6fQhgFWM" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/solid.css"
+        integrity="sha384-DhmF1FmzR9+RBLmbsAts3Sp+i6cZMWQwNTRsew7pO/e4gvzqmzcpAzhDIwllPonQ" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/fontawesome.css"
+        integrity="sha384-zIaWifL2YFF1qaDiAo0JFgsmasocJ/rqu7LKYH8CoBEXqGbb9eO+Xi3s6fQhgFWM" crossorigin="anonymous" />
     <!-- End FONTAWESON 5 -->
     <!-- Begin Alert -->
     <script src="assets/sweet/sweetalert2.all.js"></script>
@@ -45,30 +47,30 @@
     <link rel="stylesheet" href="assets/datatables/plugin/dtflexible/css/fixedColumns.dataTables.css">
     <!-- Tabel Fixed -->
     <style>
-        .swal2-styled.swal2-confirm {
-            border: 0;
-            border-radius: 0.75rem;
-            background: initial;
-            background-color: #009ef7;
-            color: #fff;
-            font-size: 1.0625em;
-        }
+    .swal2-styled.swal2-confirm {
+        border: 0;
+        border-radius: 0.75rem;
+        background: initial;
+        background-color: #009ef7;
+        color: #fff;
+        font-size: 1.0625em;
+    }
 
-        .swal2-popup .swal2-title {
-            font-weight: 800 !important;
-            font-size: 24px !important;
-            color: #000 !important;
-            margin-top: -10px !important;
-            margin-bottom: -5px !important;
-        }
+    .swal2-popup .swal2-title {
+        font-weight: 800 !important;
+        font-size: 24px !important;
+        color: #000 !important;
+        margin-top: -10px !important;
+        margin-bottom: -5px !important;
+    }
 
-        .swal2-container.swal2-center>.swal2-popup {
-            grid-column: 2;
-            grid-row: 2;
-            align-self: center;
-            justify-self: center;
-            border-radius: 0.75rem;
-        }
+    .swal2-container.swal2-center>.swal2-popup {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: center;
+        justify-self: center;
+        border-radius: 0.75rem;
+    }
     </style>
 
 </head>
@@ -195,25 +197,29 @@ function func_date_blog($datetime)
 }
 ?>
 
-<body id="kt_app_body" data-kt-app-header-fixed="true" data-kt-app-header-fixed-mobile="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" data-kt-app-aside-enabled="true" data-kt-app-aside-fixed="true" data-kt-app-aside-push-toolbar="true" data-kt-app-aside-push-footer="true" class="app-default">
+<body id="kt_app_body" data-kt-app-header-fixed="true" data-kt-app-header-fixed-mobile="true"
+    data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true"
+    data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true"
+    data-kt-app-aside-enabled="true" data-kt-app-aside-fixed="true" data-kt-app-aside-push-toolbar="true"
+    data-kt-app-aside-push-footer="true" class="app-default">
     <!--begin::Theme mode setup on page load-->
     <script>
-        var defaultThemeMode = "light";
-        var themeMode;
-        if (document.documentElement) {
-            if (document.documentElement.hasAttribute("data-bs-theme-mode")) {
-                themeMode = document.documentElement.getAttribute("data-bs-theme-mode");
+    var defaultThemeMode = "light";
+    var themeMode;
+    if (document.documentElement) {
+        if (document.documentElement.hasAttribute("data-bs-theme-mode")) {
+            themeMode = document.documentElement.getAttribute("data-bs-theme-mode");
+        } else {
+            if (localStorage.getItem("data-bs-theme") !== null) {
+                themeMode = localStorage.getItem("data-bs-theme");
             } else {
-                if (localStorage.getItem("data-bs-theme") !== null) {
-                    themeMode = localStorage.getItem("data-bs-theme");
-                } else {
-                    themeMode = defaultThemeMode;
-                }
+                themeMode = defaultThemeMode;
             }
-            if (themeMode === "system") {
-                themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-            }
-            document.documentElement.setAttribute("data-bs-theme", themeMode);
         }
+        if (themeMode === "system") {
+            themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-bs-theme", themeMode);
+    }
     </script>
     <!--end::Theme mode setup on page load-->

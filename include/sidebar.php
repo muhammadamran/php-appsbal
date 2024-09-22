@@ -8,6 +8,45 @@
             data-kt-scroll-offset="5px">
             <div id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false"
                 class="flex-column-fluid menu menu-sub-indention menu-column menu-rounded menu-active-bg mb-7">
+                <!--begin::Home-->
+                <?php if ($_GET['m'] == 'home') { ?>
+                <?php
+                    $time = date("H");
+                    $timezone = date("e");
+                    if ($time < "05") {
+                        $text     = "Good morning";
+                        $img_time = "morning.png";
+                    } else if ($time >= "11" && $time < "16") {
+                        $text     = "Good Afternoon";
+                        $img_time = "afternoon1.png";
+                    } else if ($time >= "16" && $time < "18") {
+                        $text     = "Good Afternoon";
+                        $img_time = "afternoon2.png";
+                    } else if ($time >= "18") {
+                        $text = "Good Evening";
+                        $img_time = "evening1.png";
+                    }
+                    ?>
+                <div class="app-sidebar-project-default app-sidebar-project-minimize text-center min-h-lg-350px flex-column-auto d-flex flex-column justify-content-end"
+                    id="kt_app_sidebar_footer">
+                    <img class="mx-auto h-150px h-lg-175px mb-4" src="assets/my-content/times/<?= $img_time; ?>"
+                        alt="" />
+                    <div>
+                        <font>
+                            <?= $text; ?>,
+                        </font>
+                        <font style="font-size: 14px;font-weight: 700;text-transform: uppercase;">
+                            <?= $_SESSION['first_name'] ?> <?= $_SESSION['middle_name'] ?> <?= $_SESSION['last_name'] ?>
+                        </font>
+                    </div>
+                    <div class="fw-semibold text-gray-700">
+                        Role <?= $_SESSION['role_code'] ?> - <?= $_SESSION['role_name'] ?>
+
+                    </div>
+                </div>
+                <?php } ?>
+                <!--end::Home-->
+                <?php if ($_GET['m'] != 'home') { ?>
                 <!-- Begin Section -->
                 <div class="menu-item">
                     <a class="menu-link" href="#" style="margin-top: -10px;margin-bottom: -10px;">
@@ -75,6 +114,7 @@
                         <span class="menu-title">Settings</span>
                     </a>
                 </div>
+                <?php } ?>
             </div>
         </div>
     </div>

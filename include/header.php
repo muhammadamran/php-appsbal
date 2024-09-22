@@ -411,8 +411,8 @@
                                 </div>
                             </div>
                             <div class="d-flex flex-column">
-                                <div class="fw-bold d-flex align-items-center fs-5"><?= $_SESSION['first_name'] ?>
-                                    <?= $_SESSION['last_name'] ?>
+                                <div class="fw-bold d-flex align-items-center fs-5"><?= $_SESSION['last_name'] ?>,
+                                    <?= $_SESSION['first_name'] ?>
                                     <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Online</span>
                                 </div>
                                 <a href="#"
