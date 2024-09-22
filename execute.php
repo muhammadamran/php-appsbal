@@ -99,7 +99,7 @@ if ($result != NULL) {
     $loginarea = login($data);
 
     if ($loginarea == 2) {
-        header("Location: ./index.php?login=true");
+        header("Location: ./index.php?m=home&s=index&login=true");
     } else if ($loginarea == 1) {
         header("Location: ./index.php?error=true");
     }

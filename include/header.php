@@ -46,12 +46,20 @@
             <div class="app-navbar-item d-flex align-items-stretch flex-lg-grow-1 me-2 me-lg-0"
                 style="justify-content: center;">
                 <div class="topnav">
-                    <a href="#home" class="active">Home</a>
-                    <a href="#news" class="">Point of Sales</a>
-                    <a href="#contact">Operation</a>
-                    <a href="#contact">Accounting</a>
-                    <a href="#contact">General Report</a>
-                    <a href="#about">Settings</a>
+                    <a href="index.php?m=home&s=index"
+                        class="<?= !empty($_GET['m']) && $_GET['m'] == 'home' ? 'active' : '' ?>">Home</a>
+                    <a href="index.php?m=point-of-sales&s=index"
+                        class="<?= !empty($_GET['m']) && $_GET['m'] == 'point-of-sales' ? 'active' : '' ?>">Point of
+                        Sales</a>
+                    <a href="index.php?m=operation&s=index"
+                        class="<?= !empty($_GET['m']) && $_GET['m'] == 'operation' ? 'active' : '' ?>">Operation</a>
+                    <a href="index.php?m=accounting&s=index"
+                        class="<?= !empty($_GET['m']) && $_GET['m'] == 'accounting' ? 'active' : '' ?>">Accounting</a>
+                    <a href="index.php?m=general-report&s=index"
+                        class="<?= !empty($_GET['m']) && $_GET['m'] == 'general-report' ? 'active' : '' ?>">General
+                        Report</a>
+                    <a href="index.php?m=settings&s=index"
+                        class="<?= !empty($_GET['m']) && $_GET['m'] == 'settings' ? 'active' : '' ?>">Settings</a>
                 </div>
             </div>
             <div class="app-navbar-item me-lg-1">
