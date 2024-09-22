@@ -378,19 +378,7 @@
                     <div class="avatar avatar-md">
                         <div class="header-profiles">
                             <?php
-                            $myString = $_SESSION['name'];
-                            if (strstr($myString, ' ')) {
-                                $FL    = explode(' ', $myString);
-                                $F     = $FL[0];
-                                $L     = $FL[1];
-                                $showU = substr($F, 0, 1) . "" . substr($L, 0, 1);
-                                $showD = "<font style='text-transform: capitalize;'>$L</font>, <font style='text-transform: capitalize;'>$F</font> / Kuehne + Nagel";
-                            } else {
-                                $F     = $myString;
-                                $L     = $myString;
-                                $showU = substr($myString, 0, 1) . "" . substr($myString, 0, 1);
-                                $showD = "<font style='text-transform: capitalize;'>$L</font>, <font style='text-transform: capitalize;'>$F</font> / Kuehne + Nagel";
-                            }
+                            $showU = substr($_SESSION['first_name'], 0, 1) . "" . substr($_SESSION['last_name'], 0, 1);
                             ?>
                             <font class="page-heading d-flex flex-column text-dark fw-bolder"
                                 style="font-size: 15px;text-transform: uppercase;"><?= $showU; ?></font>
@@ -410,7 +398,8 @@
                                 </div>
                             </div>
                             <div class="d-flex flex-column">
-                                <div class="fw-bold d-flex align-items-center fs-5"><?= $_SESSION['name'] ?>
+                                <div class="fw-bold d-flex align-items-center fs-5"><?= $_SESSION['first_name'] ?>
+                                    <?= $_SESSION['last_name'] ?>
                                     <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Online</span>
                                 </div>
                                 <a href="#"
