@@ -7,16 +7,18 @@
             $logo = 'show';
         } ?>
         <div class="d-flex flex-column flex-lg-row-auto hover-bg w-xl-800px positon-xl-relative">
-            <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-800px scroll-y" id="bg-login">
-                <!-- <div class="d-flex flex-row-fluid flex-column text-center p-5 p-lg-10 pt-lg-20">
+            <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-800px" id="bg-login">
+                <div class="d-flex flex-row-fluid flex-column text-center p-5 p-lg-10 pt-lg-20">
                     <a href="index.php" class="py-2 py-lg-20">
-                        <img alt="Logo" src="assets/my-content/logo/<?= $logo_img; ?>" style="display: <?= $logo; ?>" class="h-40px h-lg-50px" />
+                        <img alt="Logo" src="assets/my-content/logo/<?= $logo_img; ?>" style="display: <?= $logo; ?>"
+                            class="h-40px h-lg-50px" />
                     </a>
-                    <h1 class="d-none d-lg-block fw-bold text-white fs-2qx pb-5 pb-md-10">Welcome to <?= $app_name ?></h1>
+                    <h1 class="d-none d-lg-block fw-bold text-white fs-2qx pb-5 pb-md-10">Welcome to <?= $app_name ?>
+                    </h1>
                     <p class="d-none d-lg-block fw-semibold fs-2 text-white">
                         Application <?= $app_name ?> for our <?= $company ?>
                     </p>
-                </div> -->
+                </div>
             </div>
         </div>
         <div class="d-flex flex-column flex-lg-row-fluid py-10">

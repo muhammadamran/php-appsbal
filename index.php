@@ -43,7 +43,7 @@ if ($get_api[1] == 'api') {
         include "include/begin-main.php";
 
         if (empty($_GET['m']) and empty($_GET['s'])) {
-            include "pages/dashboard/index.php";
+            include "pages/home/index.php";
         } else if ($_GET['m'] != "" and $_GET['s'] != "") {
             if (file_exists("pages/" . $_GET['m'] . "/" . $_GET['s'] . ".php")) {
                 include "pages/" . $_GET['m'] . "/" . $_GET['s'] . ".php";
