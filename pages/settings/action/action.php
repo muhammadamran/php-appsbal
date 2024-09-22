@@ -185,8 +185,6 @@ if (isset($_POST["background_"])) {
         $query = $db->query("UPDATE apps SET background_img='$photos_newname',
                                              updated_at='$updated_at'
                              WHERE app_id='$app_id'");
-        var_dump($query);
-        exit;
         if ($query) {
             echo "<script>location.href = '../../../index.php?m=" . $modul . "&s=" . $page . "&UpdateSuccess'</script>";
         } else {
