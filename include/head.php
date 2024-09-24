@@ -47,30 +47,30 @@
     <link rel="stylesheet" href="assets/datatables/plugin/dtflexible/css/fixedColumns.dataTables.css">
     <!-- Tabel Fixed -->
     <style>
-    .swal2-styled.swal2-confirm {
-        border: 0;
-        border-radius: 0.75rem;
-        background: initial;
-        background-color: #009ef7;
-        color: #fff;
-        font-size: 1.0625em;
-    }
+        .swal2-styled.swal2-confirm {
+            border: 0;
+            border-radius: 0.75rem;
+            background: initial;
+            background-color: <?= $main_color ?>;
+            color: #fff;
+            font-size: 1.0625em;
+        }
 
-    .swal2-popup .swal2-title {
-        font-weight: 800 !important;
-        font-size: 24px !important;
-        color: #000 !important;
-        margin-top: -10px !important;
-        margin-bottom: -5px !important;
-    }
+        .swal2-popup .swal2-title {
+            font-weight: 800 !important;
+            font-size: 24px !important;
+            color: #000 !important;
+            margin-top: -10px !important;
+            margin-bottom: -5px !important;
+        }
 
-    .swal2-container.swal2-center>.swal2-popup {
-        grid-column: 2;
-        grid-row: 2;
-        align-self: center;
-        justify-self: center;
-        border-radius: 0.75rem;
-    }
+        .swal2-container.swal2-center>.swal2-popup {
+            grid-column: 2;
+            grid-row: 2;
+            align-self: center;
+            justify-self: center;
+            border-radius: 0.75rem;
+        }
     </style>
 
 </head>
@@ -204,22 +204,22 @@ function func_date_blog($datetime)
     data-kt-app-aside-push-footer="true" class="app-default">
     <!--begin::Theme mode setup on page load-->
     <script>
-    var defaultThemeMode = "light";
-    var themeMode;
-    if (document.documentElement) {
-        if (document.documentElement.hasAttribute("data-bs-theme-mode")) {
-            themeMode = document.documentElement.getAttribute("data-bs-theme-mode");
-        } else {
-            if (localStorage.getItem("data-bs-theme") !== null) {
-                themeMode = localStorage.getItem("data-bs-theme");
+        var defaultThemeMode = "light";
+        var themeMode;
+        if (document.documentElement) {
+            if (document.documentElement.hasAttribute("data-bs-theme-mode")) {
+                themeMode = document.documentElement.getAttribute("data-bs-theme-mode");
             } else {
-                themeMode = defaultThemeMode;
+                if (localStorage.getItem("data-bs-theme") !== null) {
+                    themeMode = localStorage.getItem("data-bs-theme");
+                } else {
+                    themeMode = defaultThemeMode;
+                }
             }
+            if (themeMode === "system") {
+                themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            }
+            document.documentElement.setAttribute("data-bs-theme", themeMode);
         }
-        if (themeMode === "system") {
-            themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        }
-        document.documentElement.setAttribute("data-bs-theme", themeMode);
-    }
     </script>
     <!--end::Theme mode setup on page load-->
