@@ -1,10 +1,25 @@
 <?php
+include "config/conf.php";
 ini_set('display_errors', 0);
 ini_set('max_execution_time', 0);
 date_default_timezone_set("Asia/Jakarta");
 session_start();
+
+$accountid  = $_SESSION['account_id'];
+$get_data   = $db->query("SELECT * FROM log_session WHERE account_id='$accountid' AND status='Success' ORDER BY session_id DESC");
+$show_data  = $get_data->fetch_assoc();
+
+$sessionid  = $show_data['session_id'];
+$log_date   = date("Y-m-d");
+$log_time   = date("H:i:s A");
+
+// Query Update Status Logout
+$logout     = $db->query("UPDATE log_session SET status='Logout',
+                                                 logout_date='$log_date',
+                                                 logout_time='$log_time'
+                                             WHERE session_id='$sessionid'");
+
 session_destroy();
-include "config/conf.php";
 unset($_SESSION['account_id']);
 unset($_SESSION['role_id']);
 unset($_SESSION['role_code']);

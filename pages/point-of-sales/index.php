@@ -1,0 +1,1 @@
+<title>Dashboard - Point of Sales | <?= $app_name; ?> &copy Official </title>

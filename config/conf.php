@@ -5,6 +5,8 @@ $dbpass = '';
 $dbmame = 'db_erp';
 $db = new mysqli($dbhost, $dbuser, $dbpass, $dbmame) or die(mysqli_connect_errno());
 
+date_default_timezone_set("Asia/jakarta");
+
 $qconfigsetting = $db->query("SELECT * FROM apps ORDER BY app_id ASC LIMIT 1");
 $rconfigsetting = mysqli_fetch_array($qconfigsetting);
 

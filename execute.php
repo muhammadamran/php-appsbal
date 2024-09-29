@@ -3,6 +3,36 @@
 session_start();
 include "config/conf.php";
 
+function detectDevice()
+{
+    $userAgent = $_SERVER['HTTP_USER_AGENT'];
+    $isMobile = preg_match("/(android|iphone|ipad|ipod|blackberry|webos|mobile|windows phone)/i", $userAgent);
+    $isTablet = preg_match("/(ipad|tablet)/i", $userAgent);
+    $isDesktop = !$isMobile && !$isTablet;
+
+    if ($isMobile) {
+        return "Mobile";
+    } elseif ($isTablet) {
+        return "Tablet";
+    } elseif ($isDesktop) {
+        return "Desktop";
+    } else {
+        return "Unknown Device";
+    }
+}
+
+function getUserIP()
+{
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    } else {
+        $ip = $_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
+}
+
 function login($data)
 {
     if ($data['password_hash'] == $data['password']) {
@@ -70,7 +100,6 @@ $updated_at = $result['updated_at'];
 $status = $result['status'];
 
 if ($result != NULL) {
-    // if ($role_name == 'Superadmin' || $role_name == 'User') {
     $data = [
         'account_id' => $account_id,
         'role_id' => $role_id,
@@ -99,16 +128,20 @@ if ($result != NULL) {
     $loginarea = login($data);
 
     if ($loginarea == 2) {
+
         $location       = "";
-        $device         = "";
-        $ip_address     = "";
-        $session_date   = "";
-        $session_time   = "";
+        $device         = detectDevice() . " | " . $_SERVER['HTTP_USER_AGENT'];
+        $ip_address     = getUserIP();;
+        $session_date   = date("Y-m-d");
+        $session_time   = date("H:i:s A");
         $status         = "Success";
         $log_session = $db->query("INSERT INTO log_session (session_id, account_id, location, device, ip_address, session_date, session_time, status)
                                                 VALUES
-                                                ('','$account_id','$location','$location','$device','$ip_address','$session_date','$session_time','$status')");
-        header("Location: ./index.php?m=home&s=index&login=true");
+                                                ('','$account_id','$location','$device','$ip_address','$session_date','$session_time','$status')");
+        if ($log_session) {
+            header("Location: ./index.php?m=home&s=index&login=true");
+        }
+        header("Location: ./index.php?m=home&s=index&login=false");
     } else if ($loginarea == 1) {
         header("Location: ./index.php?error=true");
     }

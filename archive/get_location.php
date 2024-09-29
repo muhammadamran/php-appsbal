@@ -2,7 +2,7 @@
 function getUserLocation()
 {
     // Dapatkan alamat IP pengguna
-    $user_ip = "136.226.236.103";
+    $user_ip = $_SERVER['REMOTE_ADDR'];
 
     // Gunakan layanan geolocation dari ipinfo.io untuk mendapatkan detail lokasi
     $api_url = "http://ipinfo.io/{$user_ip}/json";
@@ -25,6 +25,8 @@ if ($location) {
     echo "Region: " . $location['region'] . "<br>";
     echo "Country: " . $location['country'] . "<br>";
     echo "Coordinates: " . $location['loc'] . "<br>";
+    echo $session_date   = date("Y-m-d");
+    echo $session_time   = date("H:i:s");
 } else {
     echo "Location not found.";
 }
