@@ -40,7 +40,17 @@
                 <!--end::Home-->
                 <?php if ($_GET['m'] != 'home') { ?>
                     <?php
-                    include "menu/poin-of-sales.php";
+                    if ($_GET['m'] == 'point-of-sales') {
+                        include "menu/poin-of-sales.php";
+                    } else if ($_GET['m'] == 'operation') {
+                        include "menu/operation.php";
+                    } else if ($_GET['m'] == 'accounting') {
+                        include "menu/accounting.php";
+                    } else if ($_GET['m'] == 'general-report') {
+                        include "menu/general-report.php";
+                    } else if ($_GET['m'] == 'settings') {
+                        include "menu/settings.php";
+                    }
                     ?>
                 <?php } ?>
             </div>
