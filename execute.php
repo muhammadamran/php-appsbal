@@ -99,6 +99,15 @@ if ($result != NULL) {
     $loginarea = login($data);
 
     if ($loginarea == 2) {
+        $location       = "";
+        $device         = "";
+        $ip_address     = "";
+        $session_date   = "";
+        $session_time   = "";
+        $status         = "Success";
+        $log_session = $db->query("INSERT INTO log_session (session_id, account_id, location, device, ip_address, session_date, session_time, status)
+                                                VALUES
+                                                ('','$account_id','$location','$location','$device','$ip_address','$session_date','$session_time','$status')");
         header("Location: ./index.php?m=home&s=index&login=true");
     } else if ($loginarea == 1) {
         header("Location: ./index.php?error=true");
